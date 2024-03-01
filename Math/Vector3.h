@@ -1,4 +1,3 @@
-
 struct Vector3
 {
 	float x, y, z;
@@ -20,32 +19,70 @@ struct Vector3
 	float SqrMagnitude() const;
 
 	/// <summary>
+	/// Normalises the vector
+	/// </summary>
+	void Normalize();
+
+	/// <summary>
+	/// The normalised Vector (magnitude of 1)
+	/// </summary>
+	/// <param name="v"></param>
+	/// <returns></returns>
+	static Vector3 Normalized(const Vector3& v);
+
+	/// <summary>
 	/// The dot product of two vectors
 	/// </summary>
 	/// <param name="a"></param>
 	/// <param name="b"></param>
 	/// <returns></returns>
-	static float Dot(Vector3& a, Vector3& b);
+	static float Dot(const Vector3& a, const Vector3& b);
 
 	/// <summary>
-	/// Adding two vectors
+	/// The cross prodct of two vectors
 	/// </summary>
-	/// <param name="other"></param>
+	/// <param name="a"></param>
+	/// <param name="b"></param>
 	/// <returns></returns>
-	Vector3 operator+(Vector3& other);
+	static Vector3 Cross(const Vector3& a, const Vector3& b);
 
 	/// <summary>
-	/// Subtracting a vector from another
+	/// The distance between the heads of two vectors
 	/// </summary>
-	/// <param name="other"></param>
+	/// <param name="a"></param>
+	/// <param name="b"></param>
 	/// <returns></returns>
-	Vector3 operator-(Vector3& other);
-
+	static float Distance(const Vector3& a, const Vector3& b);
+	
 	/// <summary>
-	/// Scaling a vector
+	/// The squared distance between the heads of two vectors
 	/// </summary>
-	/// <param name="scalar"></param>
+	/// <param name="a"></param>
+	/// <param name="b"></param>
 	/// <returns></returns>
-	Vector3 operator*(float scalar);
+	static float SqrDistance(const Vector3& a, const Vector3& b);
 
+	inline void operator=(const Vector3& other);
+
+	inline void operator+=(const Vector3& other);
+
+	inline void operator-=(const Vector3& other);
+
+	inline void operator*=(const float scalar);
+
+	inline void operator/=(const float scalar);
 };
+
+static inline Vector3 operator+(const Vector3& a, const Vector3& b);
+
+static inline Vector3 operator-(const Vector3& a, const Vector3& b);
+
+static inline Vector3 operator*(const Vector3& v, const float scalar);
+
+static inline Vector3 operator*(const float scalar, const Vector3& v);
+
+static inline Vector3 operator/(const Vector3& v, const float scalar);
+
+static inline bool operator==(const Vector3& a, const Vector3& b);
+
+static inline bool operator!=(const Vector3& a, const Vector3& b);
