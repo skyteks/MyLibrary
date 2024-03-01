@@ -36,108 +36,108 @@ float Vector3::SqrMagnitude() const
 	return x * x + y * y + z * z;
 }
 
-float Vector3::Dot(const Vector3& a, const Vector3& b)
+float Vector3::Dot(const Vector3& u, const Vector3& v)
 {
-	return a.x * b.x + a.y * b.y + a.z * b.z;
+	return u.x * v.x + u.y * v.y + u.z * v.z;
 }
 
-Vector3 Vector3::Cross(const Vector3& a, const Vector3& b)
+Vector3 Vector3::Cross(const Vector3& u, const Vector3& v)
 {
 	return Vector3(
-		a.y * b.z - a.z * b.y,
-		a.z * b.x - a.x * b.z,
-		a.x * b.y - a.y * b.x
+		u.y * v.z - u.z * v.y,
+		u.z * v.x - u.x * v.z,
+		u.x * v.y - u.y * v.x
 	);
 }
 
-float Vector3::Distance(const Vector3& a, const Vector3& b)
+float Vector3::Distance(const Vector3& u, const Vector3& v)
 {
-	return (a - b).Magnitude();
+	return (u - v).Magnitude();
 }
 
-float Vector3::SqrDistance(const Vector3& a, const Vector3& b)
+float Vector3::SqrDistance(const Vector3& u, const Vector3& v)
 {
-	return (a - b).SqrMagnitude();
+	return (u - v).SqrMagnitude();
 }
 
-Vector3 Vector3::Project(const Vector3& v, const Vector3& onto)
+Vector3 Vector3::Project(const Vector3& u, const Vector3& v)
 {
-	Vector3 pn = Normalized(onto);
-	return Dot(v, pn) * pn;
+	Vector3 vn = Normalized(v);
+	return Dot(u, vn) * vn;
 }
 
-Vector3 Vector3::ProjectOnPlane(const Vector3& v, const Vector3& n)
+Vector3 Vector3::ProjectOnPlane(const Vector3& u, const Vector3& v)
 {
-	Vector3 p = Project(v, n);
-	return v - p;
+	Vector3 p = Project(u, v);
+	return u - p;
 }
 
-inline void Vector3::operator=(const Vector3& other)
+inline void Vector3::operator=(const Vector3& v)
 {
-	x =other.x;
-	y =other.y;
-	z =other.z;
+	x =v.x;
+	y =v.y;
+	z =v.z;
 }
 
-inline void Vector3::operator+=(const Vector3& other)
+inline void Vector3::operator+=(const Vector3& v)
 {
-	x += other.x;
-	y += other.y;
-	z += other.z;
+	x += v.x;
+	y += v.y;
+	z += v.z;
 }
 
-inline void Vector3::operator-=(const Vector3& other)
+inline void Vector3::operator-=(const Vector3& v)
 {
-	x -= other.x;
-	y -= other.y;
-	z -= other.z;
+	x -= v.x;
+	y -= v.y;
+	z -= v.z;
 }
 
-inline void Vector3::operator*=(const float scalar)
+inline void Vector3::operator*=(const float a)
 {
-	x *= scalar;
-	y *= scalar;
-	z *= scalar;
+	x *= a;
+	y *= a;
+	z *= a;
 }
 
-inline void Vector3::operator/=(const float scalar)
+inline void Vector3::operator/=(const float a)
 {
-	x /= scalar;
-	y /= scalar;
-	z /= scalar;
+	x /= a;
+	y /= a;
+	z /= a;
 }
 
-inline static Vector3 operator+(const Vector3& a, const Vector3& b)
+inline static Vector3 operator+(const Vector3& u, const Vector3& v)
 {
-	return Vector3(a.x + b.x, a.y + b.y, a.z + b.z);
+	return Vector3(u.x + v.x, u.y + v.y, u.z + v.z);
 }
 
-inline static Vector3 operator-(const Vector3& a, const Vector3& b)
+inline static Vector3 operator-(const Vector3& u, const Vector3& v)
 {
-	return Vector3(a.x - b.x, a.y - b.y, a.z - b.z);
+	return Vector3(u.x - v.x, u.y - v.y, u.z - v.z);
 }
 
-inline static Vector3 operator*(const Vector3& v, const float scalar)
+inline static Vector3 operator*(const Vector3& u, const float a)
 {
-	return Vector3(v.x * scalar, v.y * scalar, v.z * scalar);
+	return Vector3(u.x * a, u.y * a, u.z * a);
 }
 
-inline static Vector3 operator*(const float scalar, const Vector3& v)
+inline static Vector3 operator*(const float a, const Vector3& u)
 {
-	return Vector3(v.x * scalar, v.y * scalar, v.z * scalar);
+	return Vector3(u.x * a, u.y * a, u.z * a);
 }
 
-inline static Vector3 operator/(const Vector3& v, const float scalar)
+inline static Vector3 operator/(const Vector3& u, const float a)
 {
-	return Vector3(v.x / scalar, v.y / scalar, v.z / scalar);
+	return Vector3(u.x / a, u.y / a, u.z / a);
 }
 
-inline static bool operator==(const Vector3& a, const Vector3& b)
+inline static bool operator==(const Vector3& u, const Vector3& v)
 {
-	return a.x == b.x && a.y == b.y && a.z == b.z;
+	return u.x == v.x && u.y == v.y && u.z == v.z;
 }
 
-inline static bool operator!=(const Vector3& a, const Vector3& b)
+inline static bool operator!=(const Vector3& u, const Vector3& v)
 {
-	return !(a == b);
+	return !(u == v);
 }

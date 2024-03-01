@@ -26,79 +26,79 @@ struct Vector3
 	/// <summary>
 	/// The normalised Vector (magnitude of 1)
 	/// </summary>
-	/// <param name="v"></param>
+	/// <param name="u"></param>
 	/// <returns></returns>
-	static Vector3 Normalized(const Vector3& v);
+	static Vector3 Normalized(const Vector3& u);
 
 	/// <summary>
 	/// The dot product of two vectors
 	/// </summary>
-	/// <param name="a"></param>
-	/// <param name="b"></param>
+	/// <param name="u"></param>
+	/// <param name="v"></param>
 	/// <returns></returns>
-	static float Dot(const Vector3& a, const Vector3& b);
+	static float Dot(const Vector3& u, const Vector3& v);
 
 	/// <summary>
 	/// The cross prodct of two vectors
 	/// </summary>
-	/// <param name="a"></param>
-	/// <param name="b"></param>
+	/// <param name="u"></param>
+	/// <param name="v"></param>
 	/// <returns></returns>
-	static Vector3 Cross(const Vector3& a, const Vector3& b);
+	static Vector3 Cross(const Vector3& u, const Vector3& v);
 
 	/// <summary>
 	/// The distance between the heads of two vectors
 	/// </summary>
-	/// <param name="a"></param>
-	/// <param name="b"></param>
+	/// <param name="u"></param>
+	/// <param name="v"></param>
 	/// <returns></returns>
-	static float Distance(const Vector3& a, const Vector3& b);
+	static float Distance(const Vector3& u, const Vector3& v);
 	
 	/// <summary>
 	/// The squared distance between the heads of two vectors
 	/// </summary>
-	/// <param name="a"></param>
-	/// <param name="b"></param>
+	/// <param name="u"></param>
+	/// <param name="v"></param>
 	/// <returns></returns>
-	static float SqrDistance(const Vector3& a, const Vector3& b);
+	static float SqrDistance(const Vector3& u, const Vector3& v);
 
 	/// <summary>
-	/// Projecting a vector onto another
+	/// Projecting u vector u another
 	/// </summary>
-	/// <param name="v"></param>
-	/// <param name="onto">the target vector to project onto</param>
+	/// <param name="u"></param>
+	/// <param name="v">the target vector to project u</param>
 	/// <returns></returns>
-	static Vector3 Project(const Vector3& v, const Vector3& onto);
+	static Vector3 Project(const Vector3& u, const Vector3& v);
 
 	/// <summary>
-	/// Projecting a vector onto a plane (like a shadow with sun angle of 90°)
+	/// Projecting u vector u u plane (like u shadow with sun angle of 90°)
 	/// </summary>
-	/// <param name="v"></param>
-	/// <param name="planeNormal">the normal of a the fictional plane</param>
+	/// <param name="u"></param>
+	/// <param name="v">the normal of u the fictional plane</param>
 	/// <returns></returns>
-	static Vector3 ProjectOnPlane(const Vector3& v, const Vector3& n);
+	static Vector3 ProjectOnPlane(const Vector3& u, const Vector3& v);
 
-	inline void operator=(const Vector3& other);
+	inline void operator=(const Vector3& v);
 
-	inline void operator+=(const Vector3& other);
+	inline void operator+=(const Vector3& v);
 
-	inline void operator-=(const Vector3& other);
+	inline void operator-=(const Vector3& v);
 
-	inline void operator*=(const float scalar);
+	inline void operator*=(const float a);
 
-	inline void operator/=(const float scalar);
+	inline void operator/=(const float a);
 };
 
 static inline Vector3 operator+(const Vector3& a, const Vector3& b);
 
 static inline Vector3 operator-(const Vector3& a, const Vector3& b);
 
-static inline Vector3 operator*(const Vector3& v, const float scalar);
+static inline Vector3 operator*(const Vector3& u, const float a);
 
-static inline Vector3 operator*(const float scalar, const Vector3& v);
+static inline Vector3 operator*(const float a, const Vector3& u);
 
-static inline Vector3 operator/(const Vector3& v, const float scalar);
+static inline Vector3 operator/(const Vector3& u, const float a);
 
-static inline bool operator==(const Vector3& a, const Vector3& b);
+static inline bool operator==(const Vector3& u, const Vector3& v);
 
-static inline bool operator!=(const Vector3& a, const Vector3& b);
+static inline bool operator!=(const Vector3& u, const Vector3& v);
