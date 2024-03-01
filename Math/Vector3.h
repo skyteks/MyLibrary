@@ -62,6 +62,22 @@ struct Vector3
 	/// <returns></returns>
 	static float SqrDistance(const Vector3& a, const Vector3& b);
 
+	/// <summary>
+	/// Projecting a vector onto another
+	/// </summary>
+	/// <param name="v"></param>
+	/// <param name="onto">the target vector to project onto</param>
+	/// <returns></returns>
+	static Vector3 Project(const Vector3& v, const Vector3& onto);
+
+	/// <summary>
+	/// Projecting a vector onto a plane (like a shadow with sun angle of 90°)
+	/// </summary>
+	/// <param name="v"></param>
+	/// <param name="planeNormal">the normal of a the fictional plane</param>
+	/// <returns></returns>
+	static Vector3 ProjectOnPlane(const Vector3& v, const Vector3& n);
+
 	inline void operator=(const Vector3& other);
 
 	inline void operator+=(const Vector3& other);

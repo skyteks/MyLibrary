@@ -60,6 +60,18 @@ float Vector3::SqrDistance(const Vector3& a, const Vector3& b)
 	return (a - b).SqrMagnitude();
 }
 
+Vector3 Vector3::Project(const Vector3& v, const Vector3& onto)
+{
+	Vector3 pn = Normalized(onto);
+	return Dot(v, pn) * pn;
+}
+
+Vector3 Vector3::ProjectOnPlane(const Vector3& v, const Vector3& n)
+{
+	Vector3 p = Project(v, n);
+	return v - p;
+}
+
 inline void Vector3::operator=(const Vector3& other)
 {
 	x =other.x;
