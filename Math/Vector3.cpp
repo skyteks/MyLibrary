@@ -66,6 +66,11 @@ Vector3 Vector3::Project(const Vector3& u, const Vector3& v)
 	return Dot(u, vn) * vn;
 }
 
+float Vector3::ProjectLenght(const Vector3& u, const Vector3& v)
+{
+	return Dot(u, v) / v.Magnitude();
+}
+
 Vector3 Vector3::ProjectOnPlane(const Vector3& u, const Vector3& v)
 {
 	Vector3 p = Project(u, v);

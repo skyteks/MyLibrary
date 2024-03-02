@@ -1,4 +1,4 @@
-struct Vector3
+﻿struct Vector3
 {
 	float x, y, z;
 
@@ -32,6 +32,7 @@ struct Vector3
 
 	/// <summary>
 	/// The dot product of two vectors
+	/// a • b = |a| * |b| * cos(θ)
 	/// </summary>
 	/// <param name="u"></param>
 	/// <param name="v"></param>
@@ -63,7 +64,7 @@ struct Vector3
 	static float SqrDistance(const Vector3& u, const Vector3& v);
 
 	/// <summary>
-	/// Projecting u vector u another
+	/// Projecting a vector onto another
 	/// </summary>
 	/// <param name="u"></param>
 	/// <param name="v">the target vector to project u</param>
@@ -71,7 +72,15 @@ struct Vector3
 	static Vector3 Project(const Vector3& u, const Vector3& v);
 
 	/// <summary>
-	/// Projecting u vector u u plane (like u shadow with sun angle of 90�)
+	/// Projecting a vector onto another and returning its magnitude
+	/// </summary>
+	/// <param name="u"></param>
+	/// <param name="v"></param>
+	/// <returns></returns>
+	static float ProjectLenght(const Vector3& u, const Vector3& v);
+
+	/// <summary>
+	/// Projecting a vector onto a plane (like u shadow with sun angle of 90°)
 	/// </summary>
 	/// <param name="u"></param>
 	/// <param name="v">the normal of u the fictional plane</param>
