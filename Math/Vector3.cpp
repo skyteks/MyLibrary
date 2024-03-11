@@ -68,13 +68,18 @@ Vector3 Vector3::Project(const Vector3& u, const Vector3& v)
 
 float Vector3::ProjectLenght(const Vector3& u, const Vector3& v)
 {
-	return Dot(u, v) / v.Magnitude();
+	return Dot(u, Normalized(v));
 }
 
 Vector3 Vector3::ProjectOnPlane(const Vector3& u, const Vector3& v)
 {
 	Vector3 p = Project(u, v);
 	return u - p;
+}
+
+Vector3 Vector3::Reflect(const Vector3& u, const Vector3& v)
+{
+	return u - Reject(u, v) * 2.0f;
 }
 
 inline void Vector3::operator=(const Vector3& v)

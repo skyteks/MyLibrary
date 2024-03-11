@@ -11,6 +11,7 @@
 	/// </summary>
 	/// <returns></returns>
 	float Magnitude() const;
+	#define Lenght() Magnitude()
 
 	/// <summary>
 	/// The squared lenght of the vector
@@ -78,7 +79,6 @@
 	/// <param name="v"></param>
 	/// <returns></returns>
 	static float ProjectLenght(const Vector3& u, const Vector3& v);
-
 	/// <summary>
 	/// Projecting a vector onto a plane (like u shadow with sun angle of 90°)
 	/// </summary>
@@ -86,6 +86,15 @@
 	/// <param name="v">the normal of u the fictional plane</param>
 	/// <returns></returns>
 	static Vector3 ProjectOnPlane(const Vector3& u, const Vector3& v);
+	#define Reject(u, v) ProjectOnPlane(u, v)
+
+	/// <summary>
+	/// Reflect a vector using another as the mirror
+	/// </summary>
+	/// <param name="u"></param>
+	/// <param name="v"></param>
+	/// <returns></returns>
+	static Vector3 Reflect(const Vector3& u, const Vector3& v);
 
 	inline void operator=(const Vector3& v);
 
